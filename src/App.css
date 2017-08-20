@@ -1,5 +1,5 @@
 .App {
-  padding: 1rem;
+  padding: 1vw 2.5vw;
   font-family: 'Varela Round', sans-serif;
-  background: rgb(244,244,244);
+  background: rgba(244,244,244, 0.3);
 }

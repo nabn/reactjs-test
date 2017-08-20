@@ -1,16 +1,29 @@
 import React, { Component } from 'react'
-import ProductList from './Components/ProductList'
 import './App.css'
 import data from './data'
+import R from 'ramda'
 
-const products = data.slice(0,8)
+import ProductList from './Components/ProductList'
+import Header from './Components/Header'
+
+const ITEMS_PER_PAGE = 8
 
 class App extends Component {
+  state = {
+    itemsPerPage: ITEMS_PER_PAGE,
+    products: data,
+  }
+
   render() {
-    console.log(products)
+    const { itemsPerPage, products } = this.state
+    const productsDisplayed = R.take(itemsPerPage, products)
     return (
       <div className="App">
-        <ProductList products={products}/>
+        <Header
+          totalProducts={products.length}
+          itemsPerPage={itemsPerPage} />
+        <ProductList
+          products={productsDisplayed} />
       </div>
     )
   }

@@ -1,0 +1,29 @@
+.header {
+  padding: 5px 0;
+  margin: 1rem 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.title {
+  color: #999;
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  margin: 0;
+  color: #ccc;
+  font-size: .8rem;
+}
+
+.dropdown {
+  color: #999;
+  font-size: .9rem;
+}

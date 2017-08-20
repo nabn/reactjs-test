@@ -1,5 +1,4 @@
 .product-list {
-  margin: 0 1vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -7,9 +6,9 @@
 
 .item {
   border: 1px solid #eee;
-  margin: 5px;
   width: 23vw;
   background: white;
+  margin-bottom: 10px;
 }
 
 .image-container {
