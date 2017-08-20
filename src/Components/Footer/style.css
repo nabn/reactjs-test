@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  margin: 2vw 0;
+  flex-direction: row-reverse;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  font-size: .8rem;
+}
+
+.page-numbers {
+  display: flex;
+  margin: 0 10px;
+}
+
+.nav-button {
+  color: #888;
+}
+
+.number-button {
+  padding: 3px 6px;
+  margin: 0 3px;
+  background: white;
+  border-bottom: 3px solid black;
+}

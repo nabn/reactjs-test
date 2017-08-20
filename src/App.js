@@ -5,6 +5,7 @@ import R from 'ramda'
 
 import ProductList from './Components/ProductList'
 import Header from './Components/Header'
+import Footer from './Components/Footer'
 
 const ITEMS_PER_PAGE = 8
 
@@ -24,6 +25,7 @@ class App extends Component {
           itemsPerPage={itemsPerPage} />
         <ProductList
           products={productsDisplayed} />
+        <Footer />
       </div>
     )
   }
