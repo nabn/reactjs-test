@@ -31,6 +31,7 @@ class Home extends Component {
       if(n <= lastPage && n > 0) {
         const min = (n-1) * itemsPerPage
         const max = n * itemsPerPage
+
         this.setState({
           activePage: n,
           productsDisplayed: R.slice(min, max, this.props.home.products)

@@ -9,6 +9,14 @@
   width: 23vw;
   background: white;
   margin-bottom: 10px;
+
+  animation-name: appear;
+  animation-duration: .5s;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .image-container {
@@ -21,6 +29,8 @@
 .item-image {
   width: 13vw;
   height: 13vw;
+  animation-name: appear;
+  animation-duration: .5s;
 }
 
 .item-details {
