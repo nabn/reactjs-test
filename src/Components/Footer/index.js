@@ -1,28 +1,44 @@
 import React from 'react'
 import './style.css'
+import R from 'ramda'
 
-const Button = ({direction}) => (
-  <div className="nav-button">
-    {direction === 'previous'
-        ? '< Previous page'
-        : 'Next page >'
-    }
-  </div>
-)
+export default ({ nPages, activePage, changePage }) => {
+  const pages = R.take(5, Array(nPages).fill(null))
 
-const PageNumber = ({number}) =>
-  <div className="number-button">
-    <span>{number}</span>
-  </div>
-
-export default () => (
-  <div className="footer">
-    <div className="right">
-      <Button direction='previous' />
-      <div className="page-numbers">
-        {[1,2,3].map(x => <PageNumber key={x} number={x}/>)}
+  return (
+    <div className="footer">
+      <div className="right">
+        <Button
+          changePage={changePage}
+          activePage={activePage}
+          direction={-1} />
+        <div className="page-numbers">
+          {pages.map((x, i) =>
+            <PageNumber
+              changePage={changePage}
+              isActive={activePage === i + 1}
+              key={i} number={i + 1} />,
+          )}
+        </div>
+        <Button
+          changePage={changePage}
+          activePage={activePage}
+          direction={1}/>
       </div>
-      <Button direction='next' />
     </div>
-  </div>
-)
+  )
+}
+
+const Button = ({ changePage, activePage, direction }) =>
+  <button
+    onClick={changePage(activePage + direction)}
+    className="nav-button">
+    {direction === -1 ? '< Previous page' : 'Next page >'}
+  </button>
+
+const PageNumber = ({ number, isActive, changePage }) =>
+  <button
+    onClick={changePage(number)}
+    className={`number-button ${isActive ? 'active' : ''}`} >
+    <span>{number}</span>
+  </button>

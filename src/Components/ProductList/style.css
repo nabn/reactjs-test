@@ -47,3 +47,11 @@
   color: #444;
   font-size: .8rem;
 }
+
+.empty-view {
+  display: flex;
+  flex: 1;
+  height: 50vh;
+  align-items: center;
+  color: #aaa;
+}

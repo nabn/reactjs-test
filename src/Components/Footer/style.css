@@ -1,3 +1,8 @@
+button {
+  border: none;
+  background: transparent;
+}
+
 .footer {
   display: flex;
   margin: 2vw 0;
@@ -22,6 +27,10 @@
 .number-button {
   padding: 3px 6px;
   margin: 0 3px;
+  text-decoration: none;
+}
+
+.active {
   background: white;
   border-bottom: 3px solid black;
 }
