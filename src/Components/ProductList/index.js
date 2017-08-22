@@ -2,6 +2,13 @@ import React from 'react'
 import './style.css'
 import R from 'ramda'
 
+export default ({ products }) =>
+  <div className="product-list">
+    {R.isEmpty(products)
+      ? <EmptyView />
+      : products.map(x => <ProductItem key={x.id} product={x} />)}
+  </div>
+
 const ProductItem = ({product}) => (
   <div className="item">
     <div className="image-container">
@@ -24,13 +31,3 @@ const EmptyView = _ => (
     There are no products available at the moment.
   </div>
 )
-
-export default ({products}) => (
-  <div className="product-list">
-    { R.isEmpty(products)
-        ? <EmptyView />
-        : products.map(x => <ProductItem key={x.id} product={x} />) 
-    }
-  </div>
-)
-

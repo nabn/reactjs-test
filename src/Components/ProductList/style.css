@@ -14,11 +14,6 @@
   animation-duration: .5s;
 }
 
-@keyframes appear {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
 .image-container {
   border-bottom: 1px solid #eee;
   justify-content: center;
@@ -64,4 +59,9 @@
   height: 50vh;
   align-items: center;
   color: #aaa;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

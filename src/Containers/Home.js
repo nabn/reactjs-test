@@ -13,6 +13,12 @@ import { fetchProducts } from '../Store/home'
 
 const ITEMS_PER_PAGE = 8
 
+const makeOptionsArray = xs =>
+  xs.map(x => ({value: x, label: `${x} per page`}))
+
+const options = [8, 24, 56, 120]
+const dropdownOptions = makeOptionsArray(options)
+
 class Home extends Component {
   state = {
     itemsPerPage: ITEMS_PER_PAGE,
@@ -24,6 +30,12 @@ class Home extends Component {
   componentWillMount() {
     this.props.fetchProducts()
   }
+
+  setItemsPerPage = ({value}) =>
+    options.includes(value) && this.setState({
+      itemsPerPage: value,
+      productsDisplayed: R.take(value, this.props.home.products),
+    })
 
   changePage = n =>
     _ => {
@@ -43,7 +55,7 @@ class Home extends Component {
     const { products } = next.home
     const { itemsPerPage } = this.state
 
-    const productsDisplayed = R.take(this.state.itemsPerPage, products)
+    const productsDisplayed = R.take(itemsPerPage, products)
 
     const rem = products.length % itemsPerPage
     const pages = products.length / itemsPerPage
@@ -59,6 +71,8 @@ class Home extends Component {
       <div className="App">
         <Header
           totalProducts={products.length}
+          setItemsPerPage={this.setItemsPerPage}
+          options={dropdownOptions}
           itemsPerPage={itemsPerPage} />
         <ProductList
           products={productsDisplayed} />
